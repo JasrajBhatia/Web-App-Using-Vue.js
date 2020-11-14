@@ -31,6 +31,7 @@
             <div class="row">
                 <div class="col-sm-4">
                     <h5 class="mt-4">Sort By</h5>
+
                     <!-- Sort By Price -->
                     <div class="form-check">
                         <input class="form-check-input" type="radio" name="sort" id="sortascprice"
@@ -44,6 +45,38 @@
                             @click="sortDescPrice">
                         <label class="form-check-label" for="sortdescprice">
                             Price Descending
+                        </label>
+                    </div>
+
+                    <!-- Sort By Subject -->
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="sort" id="sortascsub"
+                            @click="sortAscSub">
+                        <label class="form-check-label" for="sortascsub">
+                            Subject Ascending
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="sort" id="sortdescsub"
+                            @click="sortDescSub">
+                        <label class="form-check-label" for="sortdescsub">
+                            Subject Descending
+                        </label>
+                    </div>
+
+                    <!-- Sort By Location -->
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="sort" id="sortascloc"
+                            @click="sortAscLoc">
+                        <label class="form-check-label" for="sortascloc">
+                            Location Ascending
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="sort" id="sortdescloc"
+                            @click="sortDescLoc">
+                        <label class="form-check-label" for="sortdescloc">
+                            Location Descending
                         </label>
                     </div>
                 </div>
@@ -144,6 +177,18 @@
                 },
                 sortDescPrice() {
                     this.products.sort((a, b) => a.price < b.price ? 1 : -1);
+                },
+                sortAscSub() {
+                    this.products.sort((a, b) => a.subject > b.subject ? 1 : -1);
+                },
+                sortDescSub() {
+                    this.products.sort((a, b) => a.subject < b.subject ? 1 : -1);
+                },
+                sortAscLoc() {
+                    this.products.sort((a, b) => a.location > b.location ? 1 : -1);
+                },
+                sortDescLoc() {
+                    this.products.sort((a, b) => a.location < b.location ? 1 : -1);
                 },
             },
             computed: {
