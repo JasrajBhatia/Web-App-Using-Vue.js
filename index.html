@@ -161,7 +161,7 @@
                 <p>
                     <strong><label>First Name: </label></strong>
                     <br>
-                    <input class="form-control-sm float-left" type="name" @keypress="ValidationCheck($event)" id="name" placeholder="Full Name" v-model.trim="order.firstName" style="border-radius:8px" required/>
+                    <input class="form-control-sm float-left" type="name" @keypress="letterCheck($event)" id="name" placeholder="Full Name" v-model.trim="order.firstName" style="border-radius:8px" required/>
                 </p>
                 <br>
                 <p>
@@ -233,11 +233,17 @@
                 removeCart(product) {
                     this.cart.splice(this.cart.indexOf(product), 1)
                 },
-                ValidationCheck(e) {
+                letterCheck(e) {
                     let letters = String.fromCharCode(e.keyCode);
                     if (/^[A-Za-z]+$/.test(letters)) return true;
                     else e.preventDefault();
                 },
+                numberCheck: function() {
+                    let number = event.number ? event.number : event.which;
+                    if (number < 20 || number > 100) {
+                        event.preventDefault();
+                    }
+                }
             },
             computed: {
                 cartItemCount: function() {
