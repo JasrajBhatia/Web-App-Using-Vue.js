@@ -3,9 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="styling.css">
+    <!-- Fonts and Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link rel="stylesheet" href="https://fontawesome.com/icons/minus-square?style=solid">
+    <!-- Javascript -->
+    <script src="products.js"></script>
+    <!-- Vue.js -->
+    <script src="https://unpkg.com/vue"></script>
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <title>Vue.js Web App</title>
 </head>
-<body>
-    
+<body style="background-color:rgb(210, 232, 250);width:100%;height:100%;">
+    <div id="app" class="container">
+
+    </div>
+
+    <script>
+        var webstore = new VUe({
+            el: '#app',
+            data: {
+                sitename: 'After School Clubs and Classes',
+                products: products,
+            }
+        })
+    </script>
 </body>
 </html>
