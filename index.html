@@ -29,9 +29,30 @@
                 <span class="fas fa-cart-plus"></span> Checkout
             </button>
             <div class="row">
+                <div class="col-sm-4">
+                    <h5 class="mt-4">Sort By</h5>
+                    <!-- Sort By Price -->
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="sort" id="sortascprice"
+                            @click="sortAscPrice">
+                        <label class="form-check-label" for="sortascprice">
+                            Price Ascending
+                        </label>
+                    </div>
+                    <div class="form-check ">
+                        <input class="form-check-input" type="radio" name="sort" id="sortdescprice"
+                            @click="sortDescPrice">
+                        <label class="form-check-label" for="sortdescprice">
+                            Price Descending
+                        </label>
+                    </div>
+                </div>
+                
                 <div>
                     <div class="row">
                         <div class="col-sm-4 item" v-for="product in products">
+                            <br>
+                            <br>
                             <main class="box card card-body card-body-dark shadow-md">
                               <figure>
                                   <img class="card-img-top" v-bind:src="product.image" alt="Card image" style="width:100%; height:auto">
@@ -65,18 +86,36 @@
             </div>  
         </div>
         <div v-else>
-
+            <div class="form-group">
+                <h2>Checkout</h2>
+                <br>
+                <p>
+                    <strong><label>First Name: </label></strong>
+                    <br>
+                    <input class="form-control-sm float-left" type="name" id="name" placeholder="Full Name" v-model.trim="order.firstName" style="border-radius:8px" required/>
+                </p>
+                <br>
+                <p>
+                    <strong>Phone Number: </strong>
+                    <br>
+                    <input class="form-control-sm float-left" type="number" id="phone" placeholder="Phone Number" v-model.trim="order.phonNumber" style="border-radius:8px" required/>
+                </p>
+                <br>
+                <br>
+                <button class="btn btn-outline-success btn-sm" v-on:click="submitForm">Place Order</button>
+            </div>
         </div>
     </div>
 
     <script>
-        var webstore = new VUe({
+        var webstore = new Vue({
             el: '#app',
             data: {
                 sitename: 'After School Clubs and Classes',
                 products: products,
                 showProduct: true,
                 cart: [],
+                sort: '',
             },
             methods: {
                 addToCart(product) {
@@ -100,6 +139,12 @@
                     }
                     return count;
                 },
+                sortAscPrice() {
+                    this.products.sort((a, b) => a.price > b.price ? 1 : -1);
+                },
+                sortDescPrice() {
+                    this.products.sort((a, b) => a.price < b.price ? 1 : -1);
+                },
             },
             computed: {
                 cartItemCount: function() {
@@ -108,7 +153,7 @@
                 validateCheckout: function() {
                     return this.cart.length > 0 ? false : true;
                 }
-            }
+            },
         })
     </script>
 </body>
