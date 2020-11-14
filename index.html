@@ -30,10 +30,10 @@
             </button>
             <div class="row">
                 <div class="col-sm-4">
-                    <h5 class="mt-4">Sort By</h5>
+                    <h5 class="mt-4">Sort By Price:</h5>
 
                     <!-- Sort By Price -->
-                    <div class="form-check">
+                    <div class="form-check" >
                         <input class="form-check-input" type="radio" name="sort" id="sortascprice"
                             @click="sortAscPrice">
                         <label class="form-check-label" for="sortascprice">
@@ -47,8 +47,8 @@
                             Price Descending
                         </label>
                     </div>
-
                     <!-- Sort By Subject -->
+                    <h5 class="mt-4">Sort By Subject:</h5>
                     <div class="form-check">
                         <input class="form-check-input" type="radio" name="sort" id="sortascsub"
                             @click="sortAscSub">
@@ -63,8 +63,8 @@
                             Subject Descending
                         </label>
                     </div>
-
                     <!-- Sort By Location -->
+                    <h5 class="mt-4">Sort By Location:</h5>
                     <div class="form-check">
                         <input class="form-check-input" type="radio" name="sort" id="sortascloc"
                             @click="sortAscLoc">
@@ -161,17 +161,17 @@
                 <p>
                     <strong><label>First Name: </label></strong>
                     <br>
-                    <input class="form-control-sm float-left" type="name" @keypress="letterCheck($event)" id="name" placeholder="Full Name" v-model.trim="order.firstName" style="border-radius:8px" required/>
+                    <input class="form-control-sm float-left" type="name" @keypress="letterCheck($event)" id="name" placeholder="Full Name" v-model.trim="order.name" style="border-radius:8px" required/>
                 </p>
                 <br>
                 <p>
                     <strong>Phone Number: </strong>
                     <br>
-                    <input class="form-control-sm float-left" type="number" @keypress="numberCheck($event)" id="phone" placeholder="Phone Number" v-model.trim="order.phonNumber" style="border-radius:8px" required/>
+                    <input class="form-control-sm float-left" type="number" @keypress="numberCheck($event)" id="phone" placeholder="Phone Number" v-model.trim="order.phoneNumber" style="border-radius:8px" required/>
                 </p>
                 <br>
                 <br>
-                <button class="btn btn-outline-success btn-sm" v-on:click="submitForm">Place Order</button>
+                <button class="btn btn-outline-success btn-sm" v-on:click="formValidation">Place Order</button>
             </div>
         </div>
     </div>
@@ -187,7 +187,7 @@
                 sort: '',
                 order: {
                     name: '',
-                    phone: '',
+                    phoneNumber: '',
                 }
             },
             methods: {
@@ -200,8 +200,16 @@
                 showCheckout(products) {
                     this.showProduct = this.showProduct ? false : true;
                 },
-                submitForm() {
-                    alert('Your order has be placed successfully 🙂')
+                formValidation(order) {
+                    if (this.order.name == ""){
+                        alert('Please fill out the fields');
+                    } 
+                    else if (this.order.phoneNumber == ""){
+                        alert('Please fill out the fields');
+                    }
+                    else{
+                        alert("Your order has be placed successfully 🙂");
+                    }
                 },
                 cartCount(id) {
                     let count = 0;
@@ -243,7 +251,7 @@
                     if (number < 20 || number > 100) {
                         event.preventDefault();
                     }
-                }
+                },
             },
             computed: {
                 cartItemCount: function() {
