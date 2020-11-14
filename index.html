@@ -105,6 +105,9 @@
                 cartItemCount: function() {
                     return this.cart.length;
                 },
+                validateCheckout: function() {
+                    return this.cart.length > 0 ? false : true;
+                }
             }
         })
     </script>
