@@ -43,11 +43,29 @@
                               <!-- 'add to cart' button -->
                               <button class="btn btn-outline-success btn-sm" v-on:click='addToCart(product)' v-if='canAddToCart(product)'>Add to cart</button>
                               <button class="btn btn-outline-danger btn-sm" disabled='disabled' v-else>Add to cart</button>
+                              <!-- Space available message -->
+                              <span v-if='product.spaces === cartCount(product)'> <br>Sold Out!</span>
+                              <span v-else-if="product.spaces - cartCount(product) < 5">
+                                  <br>
+                                  only {{ product.spaces - cartCount(product) }} Left!
+                              </span>
+                              <span v-else>
+                                  <br>
+                                  Buy Now! Limited Seats Left
+                              </span>
+                              <!-- Product Rating -->
+                              <div>
+                                  <span v-for='n in product.rating'>★</span>
+                                  <span v-for='n in 5-product.rating'>☆</span>
+                              </div>
                             </main>
                         </div>
                     </div>
                 </div>
             </div>  
+        </div>
+        <div v-else>
+
         </div>
     </div>
 
@@ -67,9 +85,26 @@
                 canAddToCart(product) {
                     return product.spaces > this.cartCount(product);
                 }, 
+                showCheckout(products) {
+                    this.showProduct = this.showProduct ? false : true;
+                },
+                submitForm() {
+                    alert('Your order has be placed successfully 🙂')
+                },
+                cartCount(id) {
+                    let count = 0;
+                    for (let i = 0; i < this.cart.length; i++) {
+                        if (this.cart[i] === id) {
+                            count++;
+                        }
+                    }
+                    return count;
+                },
             },
             computed: {
-
+                cartItemCount: function() {
+                    return this.cart.length;
+                },
             }
         })
     </script>
