@@ -18,7 +18,31 @@
 </head>
 <body style="background-color:rgb(210, 232, 250);width:100%;height:100%;">
     <div id="app" class="container">
-
+        <div class="row pt-4">
+            <h1 v-text="sitename"></h1>
+        </div>
+        <div v-if='showProduct'>
+          <div class="row">
+              <div>
+                  <div class="row">
+                      <div class="col-sm-4 item" v-for="product in products">
+                          <main class="box card card-body card-body-dark shadow-md">
+                            <figure>
+                                <img class="card-img-top" v-bind:src="product.image" alt="Card image" style="width:100%; height:auto">
+                            </figure>
+                            <h3 class="card-title" v-text="product.subject"></h3>
+                            <p class="card-text">Location: {{ product.location}}</p>
+                            <p class="card-text">Price: {{ product.price }}</p>
+                            <p class="card-text">Number of spaces: {{ product.spaces }}</p>
+                            <!-- 'add to cart' button -->
+                            <button class="btn btn-outline-success btn-sm" v-on:click='addToCart(product)' v-if='canAddToCart(product)'>Add to cart</button>
+                            <button class="btn btn-outline-danger btn-sm" disabled='disabled' v-else>Add to cart</button>
+                          </main>
+                      </div>
+                  </div>
+              </div>
+          </div>  
+        </div>
     </div>
 
     <script>
@@ -27,6 +51,19 @@
             data: {
                 sitename: 'After School Clubs and Classes',
                 products: products,
+                showProduct: true,
+                cart: [],
+            },
+            methods: {
+                addToCart(product) {
+                    this.cart.push(product);
+                },
+                canAddToCart(product) {
+                    return product.spaces > this.cartCount(product);
+                }, 
+            },
+            computed: {
+                
             }
         })
     </script>
