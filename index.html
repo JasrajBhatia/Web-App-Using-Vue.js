@@ -22,26 +22,32 @@
             <h1 v-text="sitename"></h1>
         </div>
         <div v-if='showProduct'>
-          <div class="row">
-              <div>
-                  <div class="row">
-                      <div class="col-sm-4 item" v-for="product in products">
-                          <main class="box card card-body card-body-dark shadow-md">
-                            <figure>
-                                <img class="card-img-top" v-bind:src="product.image" alt="Card image" style="width:100%; height:auto">
-                            </figure>
-                            <h3 class="card-title" v-text="product.subject"></h3>
-                            <p class="card-text">Location: {{ product.location}}</p>
-                            <p class="card-text">Price: {{ product.price }}</p>
-                            <p class="card-text">Number of spaces: {{ product.spaces }}</p>
-                            <!-- 'add to cart' button -->
-                            <button class="btn btn-outline-success btn-sm" v-on:click='addToCart(product)' v-if='canAddToCart(product)'>Add to cart</button>
-                            <button class="btn btn-outline-danger btn-sm" disabled='disabled' v-else>Add to cart</button>
-                          </main>
-                      </div>
-                  </div>
-              </div>
-          </div>  
+            <button v-on:click="showCheckout" :disabled="validateCheckout" class="btn btn-outline-warning text-dark my-2 my-sm-0 float-right" style="border-radius: 15px;font-weight: bold;padding:10px;">
+                <!--'cartItemCount' is used the same way as a data property.-->
+                {{ cartItemCount }}
+                <!-- add the cart icon-->
+                <span class="fas fa-cart-plus"></span> Checkout
+            </button>
+            <div class="row">
+                <div>
+                    <div class="row">
+                        <div class="col-sm-4 item" v-for="product in products">
+                            <main class="box card card-body card-body-dark shadow-md">
+                              <figure>
+                                  <img class="card-img-top" v-bind:src="product.image" alt="Card image" style="width:100%; height:auto">
+                              </figure>
+                              <h3 class="card-title" v-text="product.subject"></h3>
+                              <p class="card-text">Location: {{ product.location}}</p>
+                              <p class="card-text">Price: {{ product.price }}</p>
+                              <p class="card-text">Number of spaces: {{ product.spaces }}</p>
+                              <!-- 'add to cart' button -->
+                              <button class="btn btn-outline-success btn-sm" v-on:click='addToCart(product)' v-if='canAddToCart(product)'>Add to cart</button>
+                              <button class="btn btn-outline-danger btn-sm" disabled='disabled' v-else>Add to cart</button>
+                            </main>
+                        </div>
+                    </div>
+                </div>
+            </div>  
         </div>
     </div>
 
@@ -63,7 +69,7 @@
                 }, 
             },
             computed: {
-                
+
             }
         })
     </script>
