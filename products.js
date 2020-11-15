@@ -1,5 +1,4 @@
-let products = [
-    // ADD IMAGE in the products 
+let products = [ 
     {
         "id": 1,
         "subject": "Math",
@@ -8,7 +7,6 @@ let products = [
         "image": "images/math-subject.jpg",
         "spaces": 5,
         "rating": 4,
-        "quality": 5
     },
     {
         "id": 2,
@@ -18,7 +16,6 @@ let products = [
         "image":"images/english_subject.jpg",
         "spaces": 5,
         "rating": 4,
-        "quality": 5
     },
     {
         "id": 3,
@@ -28,7 +25,6 @@ let products = [
         "image": "images/physics_subject.jpg",
         "spaces": 5,
         "rating": 4,
-        "quality": 5
     },
     {
         "id": 4,
@@ -38,7 +34,6 @@ let products = [
         "image": "images/biology_subject.jpg",
         "spaces": 5,
         "rating": 4,
-        "quality": 5
     },
     {
         "id": 5,
@@ -48,7 +43,6 @@ let products = [
         "image": "images/chemistry_subject.jpg",
         "spaces": 5,
         "rating": 2,
-        "quality": 5
     },
     {
         "id": 6,
@@ -58,7 +52,6 @@ let products = [
         "image": "images/computerscience_subject.jpg",
         "spaces": 5,
         "rating": 5,
-        "quality": 5
     },
     {
         "id": 7,
@@ -68,7 +61,6 @@ let products = [
         "image": "images/business_subject.jpg",
         "spaces": 5,
         "rating": 5,
-        "quality": 5
     },
     {
         "id": 8,
@@ -78,7 +70,6 @@ let products = [
         "image": "images/psychology_subject.png",
         "spaces": 5,
         "rating": 4,
-        "quality": 5
     },
     {
         "id": 9,
@@ -88,7 +79,6 @@ let products = [
         "image": "images/law_subject.jpg",
         "spaces": 5,
         "rating": 3,
-        "quality": 5
     },
     {
         "id": 10,
@@ -98,7 +88,6 @@ let products = [
         "image": "images/music_subject.jpg",
         "spaces": 5,
         "rating": 2,
-        "quality": 5
     },
     {
         "id": 11,
@@ -108,7 +97,6 @@ let products = [
         "image": "images/dance_subject.jpg",
         "spaces": 5,
         "rating": 4,
-        "quality": 5
     },
     {
         "id": 12,
@@ -118,7 +106,6 @@ let products = [
         "image": "images/soccer_subject.jpg",
         "spaces": 5,
         "rating": 4,
-        "quality": 5
     },
     {
         "id": 13,
@@ -128,7 +115,6 @@ let products = [
         "image": "images/badminton_subject.jpg",
         "spaces": 5,
         "rating": 3,
-        "quality": 5
     },
     {
         "id": 14,
@@ -138,7 +124,6 @@ let products = [
         "image": "images/archery_subject.jpg",
         "spaces": 5,
         "rating": 5,
-        "quality": 5
     },
     {
         "id": 15,
@@ -148,7 +133,6 @@ let products = [
         "image": "images/shooting_subject.jpg",
         "spaces": 5,
         "rating": 5,
-        "quality": 5
     },
 
 ]
